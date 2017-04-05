@@ -13,7 +13,7 @@ use core\lib\route;
 class imooc
 {
     public static $classMap = array();
-
+    public static $assign = array();
     static public function run()
     {
         /**
@@ -50,6 +50,22 @@ class imooc
             } else {
                 return false;
             }
+        }
+
+    }
+
+    public function assign($name,$value)
+    {
+        $this->assign[$name] = $value;
+
+    }
+
+    public function display($file)
+    {
+        $file = APP.'/view/'.$file.'.html';
+        if(is_file($file)){
+            extract($this->assign);
+            include $file;
         }
 
     }
