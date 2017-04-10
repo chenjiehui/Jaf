@@ -6,6 +6,7 @@
  * Time: 下午10:00
  */
 namespace core\lib;
+use core\lib\conf;
 
 class route
 {
@@ -31,11 +32,11 @@ class route
                 $this->action = $pathArr[1];
                 unset($pathArr[1]);
             }else{
-                $this->action = 'index';
+                $this->action = conf::get('ACTION','route');
             }
         }else{
-            $this->controller = 'index';
-            $this->action = 'index';
+            $this->controller = conf::get('CTRL','route');
+            $this->action = conf::get('ACTION','route');
         }
         $count = count($pathArr) + 2;
         $i=2;

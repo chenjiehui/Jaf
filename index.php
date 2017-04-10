@@ -4,9 +4,9 @@
  *
  */
 
-define('IMOOC', realpath('./'));
-define('CORE', IMOOC.'/core');
-define('APP', IMOOC.'/app');
+define('PATH', realpath('./'));
+define('CORE', PATH.'/core');
+define('APP', PATH.'/app');
 define('MODULE', '\app');
 
 define('DEBUG', true);
@@ -19,11 +19,11 @@ if (DEBUG) {
 
 include CORE.'/common/function.php';
 
-include CORE.'/imooc.php';
+include CORE.'/main.php';
 
-spl_autoload_register('\core\imooc::load');//当new的类不存在的时候,会触发该方法
+spl_autoload_register('\core\main::load');//当new的类不存在的时候,会触发该方法
 
-\core\imooc::run();
+\core\main::run();
 
 
 
