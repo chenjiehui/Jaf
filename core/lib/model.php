@@ -14,7 +14,6 @@ class model extends \PDO
     public function __construct()
     {
         $database = conf::all('database');
-        $password = 'chenjiehui';
         try{
             parent::__construct($database['DSN'],$database['USERNAME'],$database['PASSWORD']);
         }catch (\PDOException $e){
