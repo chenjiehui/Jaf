@@ -8,6 +8,7 @@
  */
 namespace core;
 
+use core\lib\log;
 use core\lib\route;
 
 class main
@@ -22,6 +23,8 @@ class main
          * 3、实例化控制器类
          * 4、执行控制器的方法
          */
+        log::init();
+        log::log('test');
         $route = new route();
         $controller = $route->controller;
         $action = $route->action;
